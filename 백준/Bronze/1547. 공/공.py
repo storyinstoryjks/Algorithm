@@ -1,0 +1,1 @@
+b=[0,1,2,3];exec("i,j=map(int,input().split());I,J=b.index(i),b.index(j);b[I],b[J]=b[J],b[I];"*int(input()));print(b[1])
