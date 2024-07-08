@@ -1,0 +1,1 @@
+l=[*range(21)];exec('a,b=map(int,input().split());l[a:b+1]=l[a:b+1][::-1];'*10);print(*l[1:])
