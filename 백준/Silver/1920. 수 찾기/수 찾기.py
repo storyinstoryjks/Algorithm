@@ -1,0 +1,5 @@
+I=input;M=lambda:map(int,I().split())
+n=int(I())
+a=set(M())
+m=int(I())
+for i in M():print(+(i in a))
