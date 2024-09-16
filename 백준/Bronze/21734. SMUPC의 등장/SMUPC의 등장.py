@@ -1,0 +1,1 @@
+for i in input():print(f"{i}"*eval('+'.join(str(ord(i)))))
