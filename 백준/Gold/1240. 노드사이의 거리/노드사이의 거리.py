@@ -8,7 +8,7 @@ def dfs(s,e,w):
     global flag,ans
     visited[s]=1
     if s==e:
-        ans=w
+        ans=w;flag=True
         return
     for next_node,weight in graph[s]:
         if not visited[next_node]:
@@ -32,4 +32,5 @@ for _ in range(m):
     start,end=map(int,input().split())
     dfs(start,end,0)
     print(ans)
+    flag=False
     visited=[0]*(n+1)
