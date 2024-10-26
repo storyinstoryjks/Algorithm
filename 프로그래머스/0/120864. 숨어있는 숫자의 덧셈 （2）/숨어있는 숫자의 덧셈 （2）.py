@@ -1,0 +1,1 @@
+solution=lambda my_string:sum(map(int,''.join([i if i in str([*range(10)]) else ' 'for i in my_string]).split()))
