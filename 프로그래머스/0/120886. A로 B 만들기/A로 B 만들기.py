@@ -1,0 +1,1 @@
+solution=lambda before,after:+(all(before.count(i)==after.count(i) for i in set(before)))
