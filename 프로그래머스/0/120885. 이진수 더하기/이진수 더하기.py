@@ -1,0 +1,1 @@
+solution=lambda bin1,bin2:bin(int(bin1,2)+int(bin2,2))[2:]
