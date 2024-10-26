@@ -1,0 +1,1 @@
+solution=lambda numbers:max(map(lambda x:x[0]*x[1],__import__('itertools').combinations(numbers,2)))
