@@ -1,0 +1,1 @@
+solution=lambda spell,dic:~(any(i in dic for i in map(lambda x:''.join(x),__import__('itertools').permutations(spell,len(spell)))))+3
