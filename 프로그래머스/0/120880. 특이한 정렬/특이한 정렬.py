@@ -1,0 +1,1 @@
+solution=lambda numlist,n:[i[1] for i in sorted(zip([*map(lambda x:abs(x-n),numlist)],numlist),key=lambda x:(x[0],-x[1]))]
