@@ -12,7 +12,8 @@ def w(a,b,c):
     if a>20 or b>20 or c>20:
         if (a,b,c) in dp.keys():
             return dp[(a,b,c)]
-        return w(20,20,20)
+        dp[(a,b,c)]=w(20,20,20)
+        return dp[(a,b,c)]
     if a<b and b<c:
         if (a,b,c) in dp.keys():
             return dp[(a,b,c)]
