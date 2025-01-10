@@ -14,17 +14,16 @@ def dfs(sx,sy,string_num,cnt):
         nx=sx+dx
         ny=sy+dy
         if 0<=nx<5 and 0<=ny<5:
-            if not visited[nx][ny]:
-                #visited[nx][ny]=1
-                dfs(nx,ny,string_num+str(board[nx][ny]),cnt+1)
-                #visited[nx][ny]=0
+            #visited[nx][ny]=1
+            dfs(nx,ny,string_num+str(board[nx][ny]),cnt+1)
+            #visited[nx][ny]=0
                 
 board=[[*map(int,input().split())] for _ in range(5)]
 check_nums=[]
 
 for i in range(5):
     for j in range(5):
-        visited=[[0]*5 for _ in range(5)]
+        #visited=[[0]*5 for _ in range(5)]
         dfs(i,j,f'{board[i][j]}',0)
 
 #print(check_nums)
