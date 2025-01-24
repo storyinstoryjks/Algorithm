@@ -5,28 +5,27 @@
 input=__import__('sys').stdin.readline
 deque=__import__('collections').deque
 
-AQ,BQ,CQ=[],[],[]
-for i,e in enumerate([*input()[:-1]]):
-    if e=='A':AQ.append(i)
-    elif e=='B':BQ.append(i)
-    else:CQ.append(i)
+def check(c1,c2):
+    cnt,left,right=0,0,1
+    
+    while True:
+        while left<n and S[left]!=c1:
+            left+=1
+        while right<n and (S[right]!=c2 or left>right):
+            right+=1
+        if right==n:
+            break
+        S[left]='e'
+        S[right]='e'
+        cnt+=1
+    
+    return cnt
 
+S=[*input()[:-1]]
+n=len(S)
 answer=0
 
-while BQ!=[] and CQ!=[]:
-    if CQ[0]<BQ[0]:
-        CQ.pop(0)
-        continue
-    BQ.pop(0)
-    CQ.pop(0)
-    answer+=1
-
-while AQ!=[] and BQ!=[]:
-    if BQ[0]<AQ[0]:
-        BQ.pop(0)
-        continue
-    AQ.pop(0)
-    BQ.pop(0)
-    answer+=1
+answer+=check('B','C')
+answer+=check('A','B')
 
 print(answer)
