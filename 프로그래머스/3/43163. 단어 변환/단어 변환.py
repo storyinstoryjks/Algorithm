@@ -1,26 +1,35 @@
 from collections import deque
 
-def checking(word1,word2,size):
-    cnt=0
-    for i in range(size):
-        if word1[i]==word2[i]:
-            cnt+=1
-    return True if size-1==cnt else False
+def solution(begin, target, words):
+    if target not in words:
+        return 0
     
-def bfs(start_w, goal_w, words):
-    q=deque([[start_w,0,[start_w]]])
-    word_size=len(start_w)
+    q=deque([(begin,0)])
+    visited=set()
+    visited.add(begin)
     
+    str_size=len(begin)
+    alphas=[]
+    for i in range(str_size):
+        tmp=set()
+        for word in words:
+            tmp.add(word[i])
+        alphas.append([*tmp])
+
     while q:
-        word,count,visited=q.popleft()
-        if word==goal_w:
-            return count
-        for w in words:
-            if checking(word,w,word_size) and w not in visited:
-                q.append([w,count+1,visited+[w]])
+        word,depth=q.popleft()
+        for i in range(str_size):
+            flag=False
+            for c in alphas[i]:
+                next_word=[*word]
+                next_word[i]=c
+                next_word=''.join(next_word)
+                if (next_word in words) and (next_word not in visited):
+                    if next_word==target:
+                        return depth+1
+                    visited.add(next_word)
+                    q.append((next_word,depth+1))
+
     
     return 0
             
-        
-def solution(begin, target, words):
-    return bfs(begin, target, words)
